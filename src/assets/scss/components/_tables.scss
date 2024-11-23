@@ -1,0 +1,77 @@
+.table{ color: var(--gray-color-70);
+	> :not(caption) > * > * { padding: rem(15) rem(18); border: none;}
+	thead{
+		th{ background-color: $primary-color; color: $white-color; font-weight: 500;}
+		th:nth-of-type(2n+2) { background: $primary-color-dark;}
+		th:first-child{ border-end-start-radius: $radius; border-start-start-radius: $radius;}
+		th:last-child{ border-end-end-radius: $radius; border-start-end-radius: $radius;}
+	}
+	tbody > tr > *{
+		&:first-child{ border-end-start-radius: $radius; border-start-start-radius: $radius;}
+		&:last-child{ border-end-end-radius: $radius; border-start-end-radius: $radius;}
+	}
+	tbody > tr:nth-of-type(2n+2) > *{ background-color: rgba($white-blue-color, .12);}
+	tbody > tr:nth-of-type(2n+2) > *:nth-of-type(2n+2){ background-color: rgba($white-blue-color, $alpha: .18);}
+}
+.table-sm{ font-size: $fs-14; line-height: 140%;
+	> :not(caption) > * > * { padding: rem(8) rem(10);}
+	.dropdown-item{ font-size: $fs-14; padding: rem(5) rem(10);}
+}
+
+.tableFixHead { overflow-y: auto; height: 300px;
+  thead { position: sticky; top: 0; z-index: 1;}
+}
+
+.table > :not(caption) > * > *{ color: var(--gray-color-70);}
+
+@media #{$max-md} {
+	.tableFixHead{ height: unset;}
+	.table {
+	  border: 0;
+	  > :not(caption) > * > * {
+		padding: rem(10) rem(15);
+	}
+
+	  thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: rem(1);
+		margin: rem(-1);
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: rem(1);
+	  }
+
+	  tr {
+		border: 1px solid var(--gray-color-20);
+		overflow: hidden;
+		border-radius: $radius;
+		display: block;
+		margin-bottom: rem(15);
+	    > :first-child, & > :last-child{ border-radius: 0 !important;}
+	  }
+
+	  td {
+		border-bottom: 1px solid var(--gray-color-20);
+		display: block;
+		text-align: start;
+		color: var(--gray-color-70);
+		&::before {
+			content: attr(data-label);
+			float: inline-start;
+			font-weight: 500;
+			margin-inline-end: rem(10);
+			color: var(--gray-color-90);
+		  }
+		  &:last-child {
+			border-bottom: 0;
+		  }
+	  }
+	}
+  }
+
+.table-search{ position: relative; margin-bottom: rem(15); max-width: rem(220);
+	i{ position: absolute; top: 50%; margin-top: rem(-8); inset-inline-start: rem(8); color: var(--gray-color-50); font-size: $fs-14; line-height: 100%;}
+	.form-control{ padding-inline-start: rem(32);}
+}

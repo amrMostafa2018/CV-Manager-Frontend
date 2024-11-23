@@ -1,0 +1,12 @@
+.offcanvas{ 
+    &.offcanvas-end, &.offcanvas-start, &.offcanvas-top, &.offcanvas-bottom{ border: none;}
+    .offcanvas-header, .offcanvas-footer{ padding: $s-24 0; margin: 0 $s-24; border-bottom: 1px solid var(--gray-color-20);}
+    .offcanvas-footer{ border-bottom: none;  border-top: 1px solid var(--gray-color-20);}
+    .offcanvas-body{ padding: $s-24;
+        .form-control, .form-select{ padding: $padding-y calc($padding-y *1.5);    }
+        input[type="date"] {
+            color: var(--gray-color-30); 
+          }
+        .form-select{ padding-inline-end: calc($padding-y + 1.25rem);}
+    }
+}

@@ -1,0 +1,20 @@
+.pagination{
+    .page-item {
+        &:first-child {
+            .page-link { border-radius: 0; border-end-start-radius: $radius-sm; border-start-start-radius: $radius-sm;}
+        }
+        &:last-child {
+            .page-link { border-radius: 0; border-start-end-radius: $radius-sm; border-end-end-radius: $radius-sm;}
+        }
+    }
+}
+
+.page-link{ color: var(--primary-color-light);
+    &:hover{ color: var(--primary-color-dark);}
+    &:focus{ box-shadow: $focus-shadow;}
+}
+.active{
+    > .page-link, .page-link.active{ background-color: var(--primary-color); border-color: var(--primary-color);
+        &:hover{ color: var(--white-color);}
+    }
+}

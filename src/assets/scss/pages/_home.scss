@@ -1,0 +1,19 @@
+.page-content{ min-height: calc(100vh - 111px); padding: var(--s-24); font-size: $fs-15;}
+.page-title{ display: flex; align-items: center; margin-bottom: var(--s-24);
+	&-text{ margin: 0; font-size: $fs-20;}
+	&-end{ display: flex;
+		.btn{ white-space: nowrap;}
+	}
+	@media #{$max-md} { display: block;
+		&-text{ margin-bottom: rem(10);}
+	}
+
+}
+
+.container-s{ max-width: rem(900);}
+
+.card-widget{ padding: var(--s-24); box-shadow: $box-shadow-l; border-radius: $radius; background-color: var(--white-color);}
+
+[data-bs-theme="dark"]{
+    .card-widget{ background-color: $gray-color-90;}
+}

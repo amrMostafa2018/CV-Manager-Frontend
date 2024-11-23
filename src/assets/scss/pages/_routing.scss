@@ -1,0 +1,52 @@
+.router-wrapper{
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    border: 1px solid $gray-color-10;
+    cursor: pointer;
+    p{margin: 0rem;}
+    .badge{background-color: lighten($success-color, 50%); border:1px solid $success-color; color: $success-color;font-size: $fs-14;}
+    i{font-size: $fs-20; color: $primary-color;line-height: 1;}
+    .index{
+        padding: 1rem 1.1rem;
+        background-color: $white-color;
+        border-radius: 0.575rem;
+        box-shadow: $box-shadow;
+        font-size: $fs-20;
+        font-weight: 700;
+
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        inset-inline-start: -6px;
+        top: 10%;
+        bottom: 10%;
+        height: 80%;
+        width: 5px;
+        z-index: 0;
+        border-start-start-radius: 0.375rem;
+        border-end-start-radius: 0.375rem;
+        background-color: $primary-color;
+    }
+}
+// Router detail page
+.btn-bg-none{
+    background-color: none;padding:0.5rem  ;
+    i{color: $primary-color; font-size: $fs-20;}
+    &:hover{
+        background-color: none;
+        transform: none !important;
+    }
+
+}
+.btn_add-router{
+    i{color: $primary-color; font-size: $fs-30;}
+}
+.add_default_router{
+    position: absolute;
+    bottom: 30px;
+    inset-inline-start: 40px;
+    border-radius:3rem;
+}

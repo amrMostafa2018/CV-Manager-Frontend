@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;700&family=Tajawal:wght@400;500;700&display=swap');
+
+// EN Font
+
+/*@font-face {
+  font-family: 'Cabin';
+  src: url('../font/Cabin-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url('../font/Cabin-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url('../font/Cabin-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+}*/
+
+// AR Font
+
+/*@font-face {
+  font-family: 'Tajawal';
+  src: url('../font/Tajawal-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../font/Tajawal-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../font/Tajawal-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+}*/
+
+:root{
+  --font-family: 'Cabin', sans-serif;
+  --font-weight: 400;
+}
+
+[dir="rtl"]{
+  --font-family: 'Tajawal', sans-serif;
+}
+
+.f-en{ font-family: 'Cabin', sans-serif;}
+.f-ar{ font-family: 'Tajawal', sans-serif;}

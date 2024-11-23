@@ -1,0 +1,103 @@
+// Admin Panel
+
+.topbar{ position: sticky; top: 0; display: flex; align-items: center; z-index: 999; /*justify-content: space-between;*/ background-color: var(--white-color); min-height: rem(70); padding: 0 var(--s-24); box-shadow: $box-shadow;
+    .logo-sm{ display: none; padding-inline-end: var(--s-24);
+      img{ max-height: rem(28);}
+    }
+    &-menu{ margin: 0; padding-inline-start: var(--s-24); display: flex; align-items: center; gap: calc(var(--s-24) * .75);
+        .dropdown{
+            .nav-link{ display: flex; align-items: center; min-height: rem(70);cursor: pointer;}
+            .dropdown-menu{ border: none; box-shadow: $box-shadow;
+                .dropdown-item{ color: var(--gray-color-50); font-size: $fs-14;cursor: pointer;
+                    &:hover{ color: var(--gray-color-70);}
+                    &:focus{ color: $white-color;}
+                    i{
+                        img{ height: rem(14);}
+                    }
+                }
+            }
+        }
+        .nav-link{ color: var(--gray-color-50); line-height: 100%;
+            &:hover , &:focus{ color: var(--primary-color);}
+        }
+        &-icon{ font-size: $fs-20;
+            img{ height: rem(20);}
+        }
+        .dropdown-menu.show{ top: 100% !important;}
+        .dropdown-toggle::after{ display: none;}
+        .user-nav{ display: flex; align-items: center; border-inline-start:1px solid var(--gray-color-20);
+            margin-inline-end: calc(var(--s-24) * -1);
+            .nav-link{ padding: 0 rem(15); background-color: var(--gray-color-10);
+                &:hover, &:focus{ background-color: color-mix(in srgb,var(--gray-color-20), transparent 60%);}
+            }
+            .user-avatar{
+                img{ border-radius: 100%; width: rem(32); height: rem(32); object-fit: cover;}
+            }
+            .user-name{ margin-inline-start: rem(10);
+                h6{ margin: 0; font-size: $fs-14; @include textOverflow; max-width: rem(110); color: var(--gray-color-50);}
+                small{ font-size: $fs-12; color: var(--gray-color-30);}
+            }
+        }
+        .notify{ width: rem(320); padding: 0; inset-inline-start: -250px !important;
+            .dropdown-header{ border-bottom: 1px solid var(--gray-color-20); padding: rem(12) rem(10);
+                h6{ margin: 0;}
+            }
+            .dropdown-footer{ border-top: 1px solid var(--gray-color-20);
+                .dropdown-item{ padding: $padding; text-align: center; border-radius: 0 0 $radius $radius;
+                    &:hover, &:focus{ background-color: var(--primary-color); color: var(--white-color);}
+                }
+            }
+            &-body{ padding: rem(10); max-height: rem(300); overflow-y: auto; color: var(--gray-color-50);
+                .date{ margin-bottom: rem(5); font-size: $fs-12;}
+                .flex-grow-1{ @include textOverflow;}
+                .alert{ display: block; overflow: clip; line-height: 1.4;}
+                .dropdown-item{ border: 1px solid var(--gray-color-20); border-radius: $radius; padding: rem(12); margin-bottom: rem(10);
+                    &:hover, &:focus{ background-color: var(--gray-color-10); color: var(--gray-color-70) !important;}
+                    .btn-close{ position: absolute; inset-inline-end: rem(6); top: rem(6); font-size: rem(8); opacity: .5; padding: 0;
+                        &:hover, &:focus{ opacity: 1; box-shadow: none;}
+                    }
+                    .notify-icon{ width: rem(32); height: rem(32); line-height: rem(32); color: $white-color; background-color: var(--primary-color); text-align: center; border-radius: $radius-pill;
+                        i{font-size: $fs-14;}
+                    }
+                    .notify-title{ font-size: $fs-14; margin: 0; @include textOverflow;
+                        small{ font-weight: 400; color: var(--gray-color-30);}
+                    }
+                    .notify-subtitle{ font-size: $fs-13;}
+                }
+
+            }
+        }
+    }
+}
+
+.logo-dark{ display: none;}
+
+[data-bs-theme="dark"]{
+    .topbar{ background-color: $gray-color-90;
+        &-menu{ gap: var(--s-24);
+            .nav-link{
+                &:hover, &:focus{ color: $white-color;}
+            }
+        }
+        .btn-outline-primary{ border-color: $white-color; color: $white-color;
+            &:hover, &:focus{ background-color: transparent;}
+        }
+    }
+    .logo-light{ display: none;}
+    .logo-dark{ display: unset;}
+}
+
+@media #{$max-l} {
+    .topbar{
+        .logo-sm{ display: block;}
+    }
+}
+
+@media #{$max-sm} {
+    .topbar{
+        .dropdown{
+            position: static;
+            .dropdown-menu{ width: auto; left: rem(15) !important; right: rem(15) !important;}
+        }
+    }
+}

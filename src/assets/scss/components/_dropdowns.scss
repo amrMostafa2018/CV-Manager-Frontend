@@ -1,0 +1,12 @@
+.dropdown-menu{ border-radius: $radius; animation: dropdownSlide .3s both;
+  .dropdown-item{
+    &:focus{ background-color: var(--primary-color);}
+  }
+}
+
+.dropdown-toggle{
+  &::after{ border: none; @include font-icon; content: "\e901"; vertical-align: middle; transition: $transition-3s; margin-left: unset;}
+  &[aria-expanded="true"]{
+    &::after{ transform: rotate(180deg);}
+  }
+}

@@ -1,0 +1,130 @@
+// https://icomoon.io/
+
+@font-face {
+    font-family: 'iconfont';
+    src:  url('../../font/icon/iconfont.eot');
+    src:  url('../../font/icon/iconfont.eot?vuhlne#iefix') format('embedded-opentype'),
+      url('../../font/icon/iconfont.ttf?vuhlne') format('truetype'),
+      url('../../font/icon/iconfont.woff?vuhlne') format('woff'),
+      url('../../font/icon/iconfont.svg?vuhlne#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: 'iconfont';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    margin-inline-start: .2em;
+    margin-inline-end: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+.icon-google:before {
+  content: "\e913";
+}
+.icon-instagram:before {
+  content: "\e914";
+}
+.icon-linkedin:before {
+  content: "\e915";
+}
+.icon-snapchat:before {
+  content: "\e916";
+}
+.icon-telegram:before {
+  content: "\e917";
+}
+.icon-tiktok:before {
+  content: "\e918";
+}
+.icon-twitter:before {
+  content: "\e919";
+}
+.icon-youtube:before {
+  content: "\e91a";
+}
+.icon-facebook:before {
+  content: "\e91b";
+}
+.icon-angle-double-small-left:before {
+  content: "\e90f";
+}
+.icon-angle-double-small-right:before {
+  content: "\e910";
+}
+.icon-angle-small-left:before {
+  content: "\e911";
+}
+.icon-angle-small-right:before {
+  content: "\e912";
+}
+.icon-arrow-small-up:before {
+  content: "\e90e";
+}
+.icon-angle-down:before {
+  content: "\e900";
+}
+.icon-angle-small-down:before {
+  content: "\e901";
+}
+.icon-bell-ring:before {
+  content: "\e902";
+}
+.icon-brightness:before {
+  content: "\e903";
+}
+.icon-check-circle:before {
+  content: "\e904";
+}
+.icon-cross:before {
+  content: "\e905";
+}
+.icon-cross-circle:before {
+  content: "\e906";
+}
+.icon-edit:before {
+  content: "\e907";
+}
+.icon-engine-warning:before {
+  content: "\e908";
+}
+.icon-file-circle-info:before {
+  content: "\e909";
+}
+.icon-info:before {
+  content: "\e90a";
+}
+.icon-moon-stars:before {
+  content: "\e90b";
+}
+.icon-trash:before {
+  content: "\e90c";
+}
+.icon-triangle-warning:before {
+  content: "\e90d";
+}
+
+
+  // FlatIcon CDN
+
+  i[class^="fi-rr-"]::before, i[class*=" fi-rr-"]::before, span[class^="fi-rr-"]::before, span[class*="fi-rr-"]::before{
+    position: relative;
+    top: rem(1.5);
+    display: inline-block;
+    margin-inline-start: .2em;
+    margin-inline-end: .2em;
+  }
+
+
+  // Multi Dir
+  
+  [dir="rtl"] {
+    .fi-rr-angle-small-right::before{ transform: rotate(180deg);}
+    .fi-rr-angle-small-left::before{ transform: rotate(-180deg);}
+  }

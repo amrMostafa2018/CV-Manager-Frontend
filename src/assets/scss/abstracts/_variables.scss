@@ -1,0 +1,187 @@
+// Color system
+
+$white-color: #ffffff;
+// $gray-color-10: #fafbfe;
+$gray-color-10: #f2f2f2;
+$gray-color-20: #e0e3e5;
+$gray-color-30: #98a6ad;
+$gray-color-50: #6c757d;
+$gray-color-70: #313a46;
+$gray-color-90: #212529;
+$black-color: #000;
+$white-blue-color: #bdcdd9;
+$primary-color: #0055b8;
+$primary-color-light: lighten($primary-color, 5%);
+$primary-color-x-light: lighten($primary-color, 45%);
+$primary-color-dark: darken($primary-color, 5%);
+$primary-color-x-dark: darken($primary-color, 15%);
+$secondary-color: #00b2e3;
+$secondary-color-dark: darken($secondary-color, 10%);
+$success-color: #0acf97;
+$success-color-dark: darken($success-color, 5%);
+$danger-color: #d44e5e;
+$danger-color-dark: darken($danger-color, 5%);
+$warning-color: #ffbc00;
+$warning-color-dark: darken($warning-color, 5%);
+$warning-color-light: lighten($warning-color, 5%);
+$info-color: #39afd1;
+$info-color-dark: darken($info-color, 5%);
+$light-color: #ebeff4;
+$light-color-dark: darken($light-color, 5%);
+$dark-color: #6c757d;
+$dark-color-dark: darken($dark-color, 10%);
+
+$btn-bg-colors: (
+  "primary":    $primary-color,
+  "secondary":  $secondary-color,
+  "success":    $success-color,
+  "info":       $info-color,
+  "warning":    $warning-color,
+  "danger":     $danger-color,
+  "light":      $light-color,
+  "dark":       $dark-color,
+);
+
+:root{
+    --white-color: #{$white-color};
+    --gray-color-10: #{$gray-color-10};
+    --gray-color-20: #{$gray-color-20};
+    --gray-color-30: #{$gray-color-30};
+    --gray-color-50: #{$gray-color-50};
+    --gray-color-70: #{$gray-color-70};
+    --gray-color-90: #{$gray-color-90};
+    //
+    --white-blue-color: #{$white-blue-color};
+    //
+    --primary-color: #{$primary-color};
+    --primary-color-light: #{$primary-color-light};
+    --primary-color-x-light: #{$primary-color-x-light};
+    --primary-color-dark: #{$primary-color-dark};
+    --primary-color-x-dark: #{$primary-color-x-dark};
+    --secondary-color: #{$secondary-color};
+    --secondary-color-dark: #{$secondary-color-dark};
+    --success-color: #{$success-color};
+    --success-color-dark: #{$success-color-dark};
+    --danger-color: #{$danger-color};
+    --danger-color-dark: #{$danger-color-dark};
+    --warning-color: #{$warning-color};
+    --warning-color-dark: #{$warning-color-dark};
+    --warning-color-light: #{$warning-color-light};
+    --info-color: #{$info-color};
+    --info-color-dark: #{$info-color-dark};
+    --light-color: #{$light-color};
+    --light-color-darkcolor: #{$light-color-dark};
+    --dark-color: #{$dark-color};
+    --dark-color-dark: #{$dark-color-dark};
+}
+
+[data-bs-theme="dark"]{
+    --white-color: #{$black-color};
+    --gray-color-10: #{darken($gray-color-90, 5%)};
+    --gray-color-20: #{$gray-color-70};
+    --gray-color-30: #{$gray-color-50};
+    --gray-color-50: #{$gray-color-30};
+    --gray-color-70: #{$gray-color-20};
+    --gray-color-90: #{$gray-color-10};
+    //
+    --white-blue-color: #{$gray-color-70};
+    //
+    --primary-color: #{lighten($primary-color, 5%)};
+    --primary-color-light: #{darken($primary-color-light, 10%)};
+    --primary-color-x-light: #{darken($primary-color, 30%)};
+    --primary-color-dark: #{darken($primary-color, 10%)};
+    --primary-color-x-dark: #{lighten($primary-color, 40%)};
+    --secondary-color: #{lighten($secondary-color, 5%)};
+    --secondary-color-dark: #{darken($secondary-color-dark, 10%)};
+    --success-color: #{darken($success-color, 10%)};
+    --success-color-dark: #{darken($success-color-dark, 10%)};
+    --danger-color: #{darken($danger-color, 10%)};
+    --danger-color-dark: #{darken($danger-color-dark, 10%)};
+    --warning-color: #{darken($warning-color, 10%)};
+    --warning-color-dark: #{darken($warning-color-dark, 10%)};
+    --warning-color-light: #{darken($warning-color-light, 10%)};
+    --info-color: #{darken($info-color, 10%)};
+    --info-color-dark: #{darken($info-color-dark, 10%)};
+}
+
+//  Responsive Media
+
+$min-sm:"(min-width:576px)";
+$min-md:"(min-width:768px)";
+$min-l:"(min-width:992px)";
+$min-xl:"(min-width:1200px)";
+$min-xxl:"(min-width:1400px)";
+$min-xxxl:"(max-width:1600px)";
+//
+$max-sm:"(max-width:575px)";
+$max-md:"(max-width:767px)";
+$max-l:"(max-width:991px)";
+$max-xl:"(max-width:1199px)";
+$max-xxl:"(max-width:1399px)";
+$max-xxxl:"(max-width:1599px)";
+
+//@media #{$max-l} { .class}//
+
+// Font Size
+
+$fs-main: 1rem;
+//
+$fs-sm: $fs-main * .875;
+$fs-lg: $fs-main * 1.25;
+//
+$fs-32: $fs-main * 2;
+$fs-30: $fs-main * 1.875;
+$fs-28: $fs-main * 1.75;
+$fs-26: $fs-main * 1.625;
+$fs-24: $fs-main * 1.5;
+$fs-22: $fs-main * 1.375;
+$fs-20: $fs-main * 1.25;
+$fs-18: $fs-main * 1.125;
+$fs-16: $fs-main * 1;
+$fs-15: $fs-main * 0.938;
+$fs-14: $fs-main * .875;
+$fs-13: $fs-main * .813;
+$fs-12: $fs-main * .75;
+$fs-10: $fs-main * 0.625;
+
+//  Padding
+
+$padding-x: 1rem;
+$padding-y: .5rem;
+$padding: $padding-y $padding-x;
+
+$padding-sm-x: $padding-x*.75;
+$padding-sm-y: $padding-y*.75;
+$padding-sm: $padding-sm-y $padding-sm-x;
+
+$padding-lg-x: $padding-x*1.25;
+$padding-lg-y: $padding-y*1.25;
+$padding-lg: $padding-lg-y $padding-lg-x;
+
+// Padding & Margin
+
+$s-24: 1.5rem;
+
+:root{
+  --s-24: #{$s-24};
+  @media #{$max-l}{--s-24: 1.25rem;}
+  @media #{$max-md}{--s-24: 1rem;}
+}
+
+//  Radius
+
+$radius: .4rem;
+$radius-sm: $radius*.75;
+$radius-lg: $radius*1.25;
+$radius-pill: 50rem;
+
+//  shadow
+
+$box-shadow: 0 0 15px 0 rgba(48,46,56,.06);
+$box-shadow-l: 0px 10px 34px -15px rgba(48, 46, 56, 0.24);
+$btn-shadow: 0 2px 6px 0 rgba(48,46,56,.06);
+$focus-shadow: 0 0 0 4px rgba($color: $primary-color, $alpha: .2);
+
+//
+
+$transition-3s: all .3s ease-in-out;

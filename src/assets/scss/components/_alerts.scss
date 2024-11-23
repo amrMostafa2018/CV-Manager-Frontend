@@ -1,0 +1,19 @@
+.alert-primary{ background-color: var(--primary-color-x-light); border-color: rgba($primary-color-light, $alpha: .25); color: var(--primary-color-x-dark);}
+.alert{ display: flex; padding: 0; font-size: $fs-sm; line-height: 1.5; border-radius: $radius; overflow: hidden;
+    .alert-icon { background: rgba($white-color,.2); padding: rem(15);}
+    .alert-message {padding: rem(15); width: 100%;}
+}
+.alert-dismissible { padding-inline-end: rem(30);
+	.btn-close{ font-size: $fs-12; padding: rem(18) rem(15);
+		&:focus{ box-shadow: none;}}
+}
+.alert-sm{
+	.alert-icon { padding: rem(8);}
+	.alert-message { padding: rem(8);}
+}
+
+[data-bs-theme="dark"]{
+	.alert{
+		.alert-icon { background: rgba($white-color,.075);}
+	}
+}

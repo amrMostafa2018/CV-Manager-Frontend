@@ -1,0 +1,173 @@
+
+<form [formGroup]="CVForm">
+
+    <div class="page-title">
+        <h4 class="page-title-text me-auto">CV</h4>
+        <div class="page-title-end">
+
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="card-widget">
+            <div class="container">
+
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Name
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+                                <input type="Text" appTrimSpaces formControlName="name" name="name" class="form-control"
+                                    placeholder="name">
+                                <app-error-messages [ctrl]="$any(CVForm.get('name'))"></app-error-messages>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Full Name
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+                                <input type="Text" appTrimSpaces formControlName="fullName" name="name"
+                                    class="form-control" placeholder="Full Name">
+                                <app-error-messages [ctrl]="$any(CVForm.get('fullName'))"></app-error-messages>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">City Name
+                            </label>
+                            <div class="col-md-9">
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="cityName"
+                                    placeholder="City Name">
+                                <app-error-messages [ctrl]="$any(CVForm.get('cityName'))"></app-error-messages>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Email
+                            </label>
+                            <div class="col-md-9">
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="email"
+                                    placeholder="Email">
+                                <app-error-messages [ctrl]="$any(CVForm.get('email'))"></app-error-messages>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Mobile number
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="mobileNumber"
+                                    placeholder="Mobile number">
+                                <app-error-messages [ctrl]="$any(CVForm.get('mobileNumber'))"></app-error-messages>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Company Name
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="companyName"
+                                    placeholder="Company Name">
+                                <app-error-messages [ctrl]="$any(CVForm.get('companyName'))"></app-error-messages>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">City
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="city"
+                                    placeholder="City">
+                                <app-error-messages [ctrl]="$any(CVForm.get('city'))"></app-error-messages>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Company Field
+                                <i class="fi fi-rr-medical-star"></i>
+                            </label>
+                            <div class="col-md-9">
+
+                                <input type="Text" appTrimSpaces class="form-control" formControlName="companyField"
+                                    placeholder="Company Field">
+                                <app-error-messages [ctrl]="$any(CVForm.get('companyField'))"></app-error-messages>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+               <div class="">
+                <button type="button" class="btn btn-primary" (click)="submitForm()">Add CV</button>
+               </div>
+              
+            </div><!--container-->
+            
+        </div><!--card-widget-->
+    </div><!--content-->
+</form>
+
+<div class="container">
+    <p-table [value]="CVList" [paginator]="true" [rows]="pageSize" [totalRecords]="totalRecords"
+        [rowsPerPageOptions]="[5,10,20,50,100]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} To
+    {last} From {totalRecords} Entries" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
+        <ng-template pTemplate="header">
+            <tr>
+
+                <th>Name</th>
+                <th>Full Name</th>
+                <th>city Name</th>
+                <th>Email</th>
+                <th>Company Name</th>
+                <th>City</th>
+                <th>Company Field</th>
+                <th>Actions</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cv>
+            <tr>
+                <td hidden>
+                    {{cv.id}}
+                </td>
+                <td>{{cv.name}}</td>
+                <td>{{cv.fullName}}</td>
+                <td>{{cv.cityName}}</td>
+                <td>{{cv.email}}</td>
+                <td>{{cv.companyName}}</td>
+                <td>{{cv.city}}</td>
+                <td>{{cv.companyField}}</td>
+                <td style="min-width: 100px;">
+
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" role="button" id="dropdownMenuEdit" data-bs-toggle="dropdown">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuEdit">
+                            <a class="dropdown-item" type="button" (click)="edit(cv)">Edit</a>
+                            <a class="dropdown-item" type="button" (click)="Delete(cv.id)">Delete</a>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">NO DATA EXIST</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,47 @@
+.card-count{ box-shadow: $box-shadow-l; padding: var(--s-24); border-radius: $radius; background-color: var(--white-color); position: relative;
+	&::after{ display: block; content: ""; height: rem(6); background-color: $primary-color-light; position: absolute; bottom: rem(-8); right: var(--s-24); left: var(--s-24); border-radius: 0 0 $radius $radius;}
+	i{ display: block; width: rem(105); height: rem(105); background-color: $primary-color-light; box-shadow: 0 16px 30px 3px rgba($primary-color-dark,.25); border-radius: rem(20); text-align: center; line-height: rem(105); color: var(--white-color); font-size: rem(40);}
+	h2{ font-size: $fs-32; margin-bottom: rem(2);}
+	span{ font-size: $fs-15; line-height: 100%; display: block;}
+    &.color-2{
+        &::after{ background: $secondary-color;}
+        i{ background: $secondary-color; box-shadow: 0 16px 30px 3px rgba($secondary-color-dark,.25);}
+    }
+    &.color-3{
+        &::after{ background: $success-color;}
+        i{ background: #49d0af; box-shadow: 0 16px 30px 3px rgba($success-color-dark,.25);}
+    }
+    &.color-4{
+        &::after{ background: $danger-color;}
+        i{ background: #e06060; box-shadow: 0 16px 30px 3px rgba($danger-color-dark,.25);}
+    }
+}
+
+
+@media #{$max-xxxl} {
+	.card-count{ padding: rem(20);
+		i{ width: rem(75); height: rem(75); line-height: rem(82);
+			img{ width: rem(40);}
+		}
+		h2{ font-size: $fs-28;}
+		span{ font-size: $fs-14;}
+	}
+}
+
+.card-title{ border-bottom: rem(1) solid var(--gray-color-20); margin-bottom: rem(15);
+	h4{ margin-bottom: rem(-1); display: table; border-bottom: rem(3) solid var(--secondary-color); padding-bottom: rem(10); font-size: $fs-16;}
+}
+.roles-list{ max-height: rem(213); overflow-y: auto; margin: 0;
+	li{
+        &:nth-of-type(2n+1) a{ background-color: rgba($white-blue-color, .12);}
+        a{ background-color: var(--gray-color-10); color: var(--gray-color-70); display: block; padding: rem(8) rem(15); margin-bottom: rem(4); border-radius: $radius; font-size: rem(14);
+            &:hover , &:focus{ background: var(--primary-color-light); color: var(--white-color); padding-left: rem(20);}
+        }
+	}
+}
+
+// Charts
+
+#doughnut-chart{ max-height: 190px;}
+@media #{$min-md} {.bar-chart{ min-height: 194px; @include flexCenter;}}
+#bar-chart{ max-height: 190px;}

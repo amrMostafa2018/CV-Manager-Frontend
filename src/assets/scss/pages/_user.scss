@@ -1,0 +1,5 @@
+.profile-user-pic{ text-align: center; color: $white-color; background-color: var(--primary-color-dark);
+	.pic{ display: block; margin-bottom: var(--s-24);
+		img{ border-radius: $radius-pill; width: rem(170); height: rem(170); object-fit: cover; border: 5px solid var(--secondary-color);}
+	}
+}

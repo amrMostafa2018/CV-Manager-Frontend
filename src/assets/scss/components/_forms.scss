@@ -1,0 +1,70 @@
+.form-control, .form-select{ font-size: $fs-main; padding: $padding; border-radius: $radius;}
+.form-control-sm, .form-select-sm{ font-size: $fs-sm; padding: $padding-sm; border-radius: $radius-sm;}
+.form-control-lg, .form-select-lg{ font-size: $fs-lg; padding: $padding-lg; border-radius: $radius-lg;}
+.form-control{
+    &:focus{ box-shadow: $focus-shadow; border-color: rgba($color: $primary-color, $alpha: .5);}
+    &::placeholder{ color :var(--gray-color-30);}
+}
+
+.form-select{ padding-inline-end: calc($padding-x + 1.25rem);
+    &:focus{ box-shadow: $focus-shadow; border-color: rgba($color: $primary-color, $alpha: .5);}
+    &::placeholder{ color :var(--gray-color-30);}
+
+}
+
+.form-check-input {
+    &:checked{
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    &:focus{ box-shadow: $focus-shadow;}
+}
+
+.form-control.is-invalid{ padding-inline-start: $padding-x; padding-inline-end: calc($padding-x + 1.25rem);}
+.invalid-feedback{ background-color: var(--danger-color); color: var(--white-color); border-radius: $radius-sm; padding: rem(2) rem(10); text-align: center; font-size: $fs-14;}
+
+.input-add-list{ font-size: $fs-sm;
+    .list-group{ max-height: rem(105); overflow: auto;}
+    .list-group-item{ padding: rem(4) rem(10); color: var(--gray-color-50);}
+    .btn{ color: var(--gray-color-50);
+        &:hover, &:focus{ color: var(--gray-color-70);}
+    }
+    i[class*=" fi-rr-"]::before{ margin-inline-end: 0; margin-inline-start: 0;}
+}
+.fi-rr-medical-star{
+    color: $danger-color;
+    font-size: 0.4rem;
+    margin-right: 0.125rem;
+    position: relative;
+    top: -0.5rem;
+}
+
+
+// Form Floating
+.form-floating{ font-size: $fs-14;
+    > label{ padding-inline-start: $padding-x; padding-inline-end: $padding-x;}
+    > .form-control, > .form-control-plaintext{ padding-inline-start: $padding-x; padding-inline-end: $padding-x;}
+}
+.form-label{ 
+    color: var(--gray-color-50);
+   
+}
+.form-text{ color: var(--gray-color-50);}
+.form-number{ width: rem(100);}
+
+.verify-input{
+    .form-control{ font-weight: 700; font-size: $fs-20; text-align: center; letter-spacing: rem(20);
+        &:focus::placeholder{ color :var(--gray-color-30);}
+    }
+}
+form{
+    .input-group-text{ width:160px;}
+}
+.input-group{
+    .form-control{
+        border-radius: 0.4rem !important;
+        border-start-start-radius: 0rem !important;
+        border-end-start-radius: 0rem !important;
+    }
+}
+

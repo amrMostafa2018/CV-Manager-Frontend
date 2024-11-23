@@ -1,0 +1,128 @@
+.sidebar-wrapper{ background-color: var(--gray-color-10); transition: $transition-3s;}
+
+.sidebar{ position: fixed; top: 0; inset-inline-start: rem(-262); width: rem(70); height: 100vh; background-color: var(--white-color); transition: $transition-3s; box-shadow: $box-shadow; z-index: 1000;
+  &:hover{ width: rem(260);
+    .menu-arrow, .item-name, .sidebar-brand span, .show{ display: unset;}
+    .sidebar-nav-title{ display: block;} 
+  }
+  .btn-close{ position: absolute; line-height: 100%; top: 50%; inset-inline-end: rem(-18); background-color: var(--white-color); color: var(--gray-color-50);
+    opacity: 1; border-end-end-radius: rem(32); border-start-end-radius: rem(32); border-start-start-radius: 0; border-end-start-radius: 0;
+    margin-top: rem(-16); padding: rem(12) rem(8) rem(12) 0; font-size: rem(10); display: none;
+    &:focus{ box-shadow: none;}
+  }
+  &-brand{ display: block; text-align: center; margin: 0 rem(16) rem(16); line-height: rem(70); border-bottom: 1px solid var(--gray-color-20); white-space: nowrap; direction: ltr;
+    img{ max-height: rem(32);}
+    span{ font-weight: 500; font-size: $fs-18; color: var(--gray-color-70);}
+  }
+  // Navbar
+  &-nav{ max-height: calc(100vh - rem(86)); overflow-y: auto; overflow-x: hidden;
+    &-title{ font-size: 75%; text-transform: uppercase; padding: rem(4) rem(24) rem(10); color: var(--gray-color-30);}
+    &-item{ margin-bottom: rem(6);}
+    &-link{ display: flex; padding: rem(8) rem(20); font-size: $fs-15; color: var(--gray-color-50); align-items: center;
+      &:hover, &[aria-expanded="true"], &:focus{ color: var(--primary-color);}
+      &.active{ color: var(--primary-color); position: relative;
+        &::before { content: ''; position: absolute; inset-inline-start: 0; top: 0; width: rem(2); height: 100%; background-color: var(--primary-color);
+        border-start-end-radius: rem(2); border-end-end-radius: rem(2);}
+      }
+      i{ font-size: $fs-20;}
+    }
+    .sub-menu{
+      .sidebar-nav-link{ padding-inline-start: rem(52); padding-top: rem(6); padding-bottom: rem(6); font-size: $fs-14;}
+    }
+    .menu-arrow, .item-name, .sidebar-nav-title, .show { display: none;}
+    .menu-arrow{ float: inline-end;}
+    .item-name{ margin-inline-start: rem(10); margin-inline-end: rem(5); width: 100%;}
+  }
+  &-brand span{display: none;}
+  // End Navbar
+}
+
+.sidebar-toggle{ border: none; background: none; padding: 0; font-size: $fs-20; opacity: .7; transition: $transition-3s; padding-inline-end: var(--s-24);
+    &:hover, &:focus{ opacity: 1;}
+    .bar{ display: block; width: rem(20); height: rem(2); background-color: $gray-color-50; margin: rem(6) 0; border-radius: $radius-pill; transition: $transition-3s;
+        &:nth-child(2){ margin-inline-start: rem(5);}
+    }
+}
+
+.sidebar-show { padding-inline-start: rem(70);
+    .sidebar{ inset-inline-start: 0;
+      .menu-arrow, .item-name, .sidebar-brand span, .show { display: unset;}
+      .sidebar-nav-title{ display: block;}
+    }
+    .sidebar-toggle{
+        .bar{
+            &:nth-child(2){ margin-inline-start: rem(-5);}
+        }
+    }
+}
+
+// Dark Mode
+
+[data-bs-theme="dark"]{
+  .sidebar{ background-color: $primary-color;
+    .btn-close{ background-color: $primary-color; color: $white-color; filter: none;}
+    &-brand{ border-color: rgba($color: $white-color, $alpha: .2);}
+    &-nav{
+      &-link{ color: rgba($color: $white-color, $alpha: .7);
+        &:hover, &[aria-expanded="true"]{ color: $white-color;}
+        &.active{ color: $white-color; position: relative;
+          &::before { background-color: $white-color;}
+        }
+      }
+    }
+    .sidebar-nav-title{ color: rgba($color: $white-color, $alpha: .45);}
+  }
+}
+
+// Theme Dark
+
+.sidebar-dark{ background-color: $primary-color;
+    .btn-close{ background-color: $primary-color; color: $white-color; filter: none;}
+    .sidebar-brand{ border-color: rgba($color: $white-color, $alpha: .2);
+      span{ color: $white-color;}
+    }
+    .sidebar-nav{
+      &-link{ color: rgba($color: $white-color, $alpha: .7);
+        &:hover, &[aria-expanded="true"], &:focus{ color: $white-color;}
+        &.active{ color: $white-color; position: relative;
+          &::before { background-color: $white-color;}
+        }
+      }
+    }
+    .sidebar-nav-title{ color: rgba($color: $white-color, $alpha: .55);}
+}
+
+.sidenav-backdrop{ position: fixed; opacity: .5; top: 0; left: 0; z-index: 999; width: 100vw; height: 100vh; background-color: darken($primary-color, 40); display: none;}
+
+@media #{$min-l} {
+    .sidebar-wrapper{ padding-inline-start: rem(70);}
+    .sidebar{ inset-inline-start: 0;}
+    .sidebar-show { padding-inline-start: rem(260);
+        .sidebar{ inset-inline-start: 0; width: rem(260);}
+    }
+}
+
+@media #{$max-l} {
+  .sidebar-show { padding-inline-start: rem(260);
+    .sidebar{ width: rem(260);}
+    .sidebar-toggle{
+      .bar{
+          &:nth-child(1){ transform: translate(0, 3px) rotate(-45deg);}
+          &:nth-child(2){ display: none;}
+          &:nth-child(3){ transform: translate(0, -4px) rotate(45deg);}
+      }
+    }
+  }
+  .sidebar{
+    &-nav{max-height: 100vh;
+      &-title{ padding: rem(15) rem(24);}
+    }
+    &-brand{ display: none;}
+  }
+}
+
+@media #{$max-md} {
+  .sidebar-show { padding-inline-start: 0;
+    .sidenav-backdrop , .btn-close{ display: block;}
+  }
+}

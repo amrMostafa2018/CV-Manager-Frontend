@@ -1,0 +1,46 @@
+.btn{ font-size: $fs-main; padding: $padding; border-radius: $radius;}
+.btn-sm{ font-size: $fs-sm; padding: $padding-sm; border-radius: $radius-sm;}
+.btn-lg{ font-size: $fs-lg; padding: $padding-lg; border-radius: $radius-lg;}
+
+/***** Btn Hover *****/
+
+.btn , .nav-tabs .nav-link, .page-link, .dropdown-item{
+	overflow-y: clip;
+	@-moz-document url-prefix(){ overflow: clip;}
+    transform: perspective(1px) translateZ(0);
+	&:before {
+	  content: "";
+	  position: absolute;
+	  z-index: -1;
+	  inset-block-start: 0;
+	  inset-block-end: 0;
+	  inset-inline-start: 0;
+	  inset-inline-end: 0;
+	  background: rgba(255,255,255,.2);
+	  transform: scaleX(0);
+	  transform-origin: right;
+	  transition-property: transform;
+	  transition-duration: 0.3s;
+	  transition-timing-function: ease-out;
+	}
+	&:hover:before, &:focus:before, &:active:before {
+	  transform-origin: left;
+	  transform: scaleX(1);
+	}
+}
+
+// tooltip
+
+.custom-tooltip {
+	--bs-tooltip-bg: var(--primary-color);
+	--bs-tooltip-color: var(--white-color);
+}
+
+// theme btn
+
+html[data-bs-theme="dark"] {
+    .theme-toggle{
+      .icon-moon-stars::before { content: "\e903";}
+      .fi-rr-moon-stars::before { content: "\fbf2";}
+    }
+}

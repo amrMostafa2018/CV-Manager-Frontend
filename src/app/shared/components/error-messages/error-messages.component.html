@@ -1,0 +1,6 @@
+<div *ngIf="shouldShowErrors()"style="display: block;">
+    <div *ngFor="let error of listOfErrors()" style="display: block;" class="invalid-feedback mb-2"> 
+      {{error.message}} {{error.expected}}
+    </div>
+    <!-- [class.is-invalid] -->
+  </div>

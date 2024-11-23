@@ -1,0 +1,39 @@
+.loading { background: var(--white-color); position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 10000; display: flex; align-items: center; justify-content: center;
+  
+    path {
+        stroke: rgba($color: $primary-color, $alpha: .5);
+        stroke-width: 0;
+        stroke-dasharray: 300;
+        animation: letter-animation 3s linear forwards infinite;
+    }
+  
+    @keyframes letter-animation {
+        0% {
+            stroke-dashoffset: 300;
+            stroke-width: 0.8;
+            fill-opacity: 0;
+        }
+        25% {
+            fill-opacity: 0;
+        }
+        50% {
+            fill-opacity: 0;
+        }
+        75% {
+            fill-opacity: .25;
+        }
+        100% {
+            fill-opacity: 1;
+            stroke-width: 0;
+            stroke-dashoffset: 0;
+        }
+    }
+}
+
+[data-bs-theme="dark"]{
+    .loading {
+        path {stroke: rgba($color: $white-color, $alpha: .5);}
+        .cls-2 { fill: $white-color;}
+    }
+}
+  

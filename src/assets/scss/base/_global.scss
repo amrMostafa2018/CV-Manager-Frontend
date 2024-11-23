@@ -1,0 +1,49 @@
+// global
+
+html{ font-size: 16px;
+	@media #{$max-l} { font-size: 95%;}
+	@media #{$max-md} { font-size: 90%;}
+}
+
+body { font-family: var(--font-family); font-size: $fs-main; font-weight: var(--font-weight); color: var(--gray-color-50); line-height: 1.4;}
+h1, h2, h3, h4, h5, h6 { font-weight: 500; color: var(--gray-color-70);}
+h1 { font-size: $fs-26;}
+h2 { font-size: $fs-24;}
+h3 { font-size: $fs-22;}
+h4 { font-size: $fs-20;}
+h5 { font-size: $fs-18;}
+h6 { font-size: $fs-16;}
+img{ max-width:100%; height:auto;}
+a{ color: var(--primary-color); text-decoration: none; transition: $transition-3s;
+	&:hover{ color: var(--gray-color-50);}
+}
+button{ transition: $transition-3s;}
+ul { padding:0; list-style:none;}
+b, strong { font-weight: 700;}
+
+// selection
+
+::selection { background: var(--primary-color); color: $white-color;}
+
+// custom scrollbar
+
+*{
+	scrollbar-color: var(--primary-color-dark) var(--primary-color-x-light);
+	scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+::-webkit-scrollbar-track {
+	background-color: var(--primary-color-x-light);
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--primary-color-dark) ;
+	border-radius: 5px;
+	border: 0 solid var(--primary-color-x-light);
+	background-clip: content-box;
+	&:hover{
+		background-color: var(--primary-color-light);
+	}
+} 

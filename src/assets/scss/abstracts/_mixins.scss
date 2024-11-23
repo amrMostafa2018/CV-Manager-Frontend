@@ -1,0 +1,45 @@
+@mixin flexCenter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexCenter-x {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin photoBgCover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin photoResponsive {
+    width: 100%;
+    object-fit: cover;
+}
+
+@mixin textOverflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin font-icon {
+    font-family: 'iconfont';
+    background-image: none;
+    line-height: 1;
+    font-weight: normal;
+}
+
+// Animation Duration
+
+@mixin duration{
+    animation-duration: .8s;
+    transition-duration: .8s;
+    animation-fill-mode: both;
+}

@@ -1,0 +1,18 @@
+.error{ @include flexCenter; min-height: calc(100vh - rem(208)); text-align: center; padding: rem(10);
+	i{ margin: 0 auto var(--s-24); display: block; max-width: 320px;}
+	h1{ margin-bottom: rem(5); font-size: $fs-26; font-weight: 500; color: var(--gray-color-70);
+		span{ font-weight: 700;}
+	}
+	p{ font-size: $fs-18; color: var(--gray-color-50); margin: 0;}
+	.btn{ margin-top: rem(15);}
+	@media #{$max-l} {
+		i{ max-width: 220px;}
+		h1{ font-size: $fs-22;}
+		p{font-size: $fs-16;}
+	}
+}
+
+.error-s{ text-align: center; padding: rem(5);
+	img{ max-width: 160px;}
+	h1{ font-size: $fs-16; margin-top: rem(10);}
+}

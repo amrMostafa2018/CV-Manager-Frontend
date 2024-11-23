@@ -1,0 +1,17 @@
+// Admin Panel
+
+.admin-footer{ font-size: $fs-13; margin: 0 var(--s-24); border-top: 1px solid var(--gray-color-20); color: var(--gray-color-30);
+    .row{ align-items: center; min-height: rem(40);}
+    a{ color: var(--gray-color-50);
+        &:hover, &:focus{ color: var(--primary-color);}
+    }
+    &-links{ text-align: end;
+        a{ display: inline-block; margin-inline-start: rem(10);}
+    }
+}
+
+@media #{$max-md} {
+    .admin-footer{ text-align: center;
+        &-links{ display: none;}
+    }
+}

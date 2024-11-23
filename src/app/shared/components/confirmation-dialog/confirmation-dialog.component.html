@@ -1,0 +1,32 @@
+<div [ngClass]="dialogConfig.severity === 'warning' ?
+     'warning-alert-modal' : dialogConfig.severity === 'danger' ?
+     'danger-alert-modal' : ''" class="info-modal warning-alert-modal ">
+  <div class="p-confirm-dialog warning-alert-modal" style="display: flex;flex-flow:column ;">
+
+
+    <div class=" p-dialog-content">
+      <i [ngClass]="dialogConfig.severity === 'warning' ? 'icon-info' :
+      dialogConfig.severity === 'danger' ? 'icon-cross-circle' : ''" class="fi modal-icon">
+      </i>
+      <h4 class="modal-title2">{{dialogConfig.dialogTitle}}</h4>
+
+      <p>{{dialogConfig.dialogMessage}}</p>
+    </div>
+
+    <div class=" p-dialog-footer">
+
+
+      <button [ngClass]="dialogConfig.severity === 'warning' ? 'btn-warning' : dialogConfig.severity === 'danger' ? 'btn-danger' : ''"
+        [label]="dialogConfig.confirmButtonName" (click)="close(true)" type="button" class="btn" pButton>
+      </button>
+      <button [label]="dialogConfig.CancellButtonName" (click)="close(false)" type="button" class="btn btn btn-outline-dark" pButton>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <button class="btn btn-primary mx-2" (click)="confirm1()"  label="Confirm" >Dialog Button</button> -->
+

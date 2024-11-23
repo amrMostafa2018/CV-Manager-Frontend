@@ -1,0 +1,92 @@
+.login-wrapper{ min-height: 100vh; background-color: var(--gray-color-10); display: flex; align-items: center; background: linear-gradient(to right, var(--gray-color-10) 50%, var(--primary-color-dark) 50%);}
+.login{ max-width: 900px; display: flex; margin: calc(($s-24) * 2) auto $s-24; box-shadow: $box-shadow-l;
+    transition-duration: .8s;
+    .top-links{ position: absolute; top: rem(10);
+        button{ font-size: $fs-14; background-color: transparent; border: none; float: inline-start; padding: 0; margin-inline-end: rem(3); color: var(--gray-color-70);
+            i, img{ font-size: $fs-16; width: rem(26); height: rem(26); border-radius: $radius-pill; display: inline-block; object-fit: cover;}
+            i{ background-color: var(--primary-color); color: $white-color; line-height: rem(26); margin-inline-end: rem(2);
+                &::before{ top: 10%;}
+            }
+        }
+        .theme-toggle{
+            i{ background-color: transparent; color: var(--gray-color-70);}
+        }
+    }
+    &-form , &-text{ width: 50%; background-color: var(--white-color); padding: calc(var(--s-24) * 2);}
+    &-form{
+        .input-group-text{ background-color: transparent; padding: rem(10) rem(16); color: var(--gray-color-30);}
+        .btn{ width: 100%; padding: rem(15); font-size: $fs-18;}
+    }
+    &-text{ background-color: $primary-color; color: $white-color; display: flex; align-items: center; text-align: center;
+        .content{ width: 100%;}
+        .logo{ margin-bottom: var(--s-24);
+            img{ width: rem(100);}
+        }
+        .logo-title{ color: $white-color; font-size: $fs-24; font-weight: 400; margin: 0;
+            span{ display: block; font-size: $fs-28; font-weight: 600;}
+        }
+        .copyright{ margin-top: calc(var(--s-24) * 2); font-size: $fs-14; color: rgba($color: $white-color, $alpha: .8);
+            span{ display: block;}
+            a{ color: $white-color;}
+        }
+    }
+    .title{ display: flex; align-self: center; align-items: center; margin-bottom: calc(var(--s-24) * 1.5);
+        h3{ margin: 0 rem(10) 0 0; font-weight: 400; font-size: $fs-24; color: var(--gray-color-70);}
+        &-social{ margin-inline-start: auto;
+            .btn{ padding: 0; width: rem(36); height: rem(36); line-height: rem(36); font-size: $fs-14; color: var(--gray-color-30); border: 1px solid var(--gray-color-20); margin-left: rem(2);
+                &:hover, &:focus{ color: var(--white-color); background-color: var(--primary-color); border-color: var(--primary-color);}
+            }
+        }
+    }
+}
+
+.qr-code{ text-align: center;
+    img{ max-width: rem(120); max-height: rem(120); margin: rem(5) 0;}
+}
+
+.face-id{ max-width: rem(350); margin: auto; padding: rem(10) 0;
+    h3{ color: var(--primary-color);}
+    &-content{ margin: rem(15) 0; position: relative; overflow: hidden; height: rem(350);
+        .guide-camera{ position: relative; width: 100%; z-index: 2; display: block;
+            img{ transform: scale(1); height: rem(350);}
+        }
+        .live-camera{ position: absolute; top: 0; width: 100%; height: rem(350);}
+    }
+    @media #{$max-l} { max-width: rem(272);
+        &-content{ height: rem(272);
+            .guide-camera{
+                img{ height: rem(272);}
+            }
+            .live-camera{ height: rem(272);}
+        }
+    }
+}
+
+[dir="rtl"]{
+    .login-wrapper{ background: linear-gradient(to left, var(--gray-color-10) 50%, var(--primary-color-dark) 50%);}
+    .fi-rr-arrow-small-left{ display: inline-block; rotate: 180deg;}
+}
+
+@media #{$max-md} {
+    .login-wrapper, [dir="rtl"] .login-wrapper{ background: linear-gradient(to top, var(--gray-color-10) 50%, var(--primary-color-dark) 50%);}
+    .login{ display: block;
+        .top-links{
+            button{ color: $white-color;
+                i{ background-color: $white-color; color: $primary-color-dark;}
+            }
+            .theme-toggle{
+                i{ color: $white-color;}
+            }
+        }
+        &-form , &-text{ width: 100%; padding: calc(var(--s-24) * 2);}
+        &-text{
+            .logo{
+                img{ width: rem(60);}
+            }
+        }
+        .logo-title{
+            span{ display: none;}
+        }
+        .copyright{ display: none;}
+    }
+}
