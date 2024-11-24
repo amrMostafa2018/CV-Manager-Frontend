@@ -20,12 +20,14 @@ export class CvComponent implements OnInit {
   CVList!: CVMOdel[];
   CVForm!: FormGroup;
   CVRequest!: CVRequestModel;
+  CVUpdateRequest!: CVMOdel;
+  isEdit: boolean = false;
 
   constructor(private cvService: CvService,
     private toasterService: ToasterService,
     private fb: FormBuilder,
     private validation: CustomValidationService,
-    private confirmDialogService: ConfirmationDialogService) {
+    private confirmationDialog: ConfirmationDialogService) {
     this.createCVForm();
   }
 
@@ -35,6 +37,7 @@ export class CvComponent implements OnInit {
 
   createCVForm() {
     this.CVForm = this.fb.group({
+      id: [0],
       name: [null, [Validators.required, Validators.maxLength(255), this.validation.noWhitespaceValidator]],
       fullName: [null, [Validators.required, Validators.maxLength(255), this.validation.noWhitespaceValidator]],
       cityName: [null, [Validators.maxLength(255), this.validation.noWhitespaceValidator]],
@@ -61,38 +64,89 @@ export class CvComponent implements OnInit {
   }
 
   edit(cv: CVMOdel) {
-    console.log(cv);
+    this.patchDataToForm(cv);
   }
 
   Delete(id: number) {
     console.log(id);
-  }
-
-  submitForm() {
-    if (this.CVForm.valid) {
-      this.CVRequest = this.CVForm.value as CVRequestModel;
-      this.confirmDialogService.Confirm('confirm add CV').subscribe((isConfirm) => {
-        if (isConfirm) {
-          this.cvService.AddCV(this.CVRequest).subscribe(
+    this.confirmationDialog
+      .Confirm('Are you sure Delete CV ?')
+      .subscribe((res) => {
+        if (res) {
+          this.cvService.DeleteCV(id).subscribe(
             (res) => {
-              this.createCVForm();
-              this.toasterService.success('Cv added successfully');
+              this.toasterService.success('Cv Deleted successfully');
               this.GetCVsData();
             },
             (err) => {
               this.toasterService.error(err?.error?.error?.detail);
-            }
-          )
+            });
+          }
+      });
+  }
 
-        } else {
-          return;
-        }
+  submitForm() {
+    if (this.CVForm.valid) {
+      if (!this.isEdit) {
+        this.AddCV();
       }
-
-      );
-    } else {
+      else {
+        this.UpdateCV();
+      }
+    }
+    else {
       this.CVForm.markAllAsTouched();
     }
+  }
+
+  AddCV() {
+    this.CVRequest = this.CVForm.value as CVRequestModel;
+    this.cvService.AddCV(this.CVRequest).subscribe(
+      (res) => {
+        this.createCVForm();
+        this.toasterService.success('Cv added successfully');
+        this.GetCVsData();
+      },
+      (err) => {
+        this.toasterService.error(err?.error?.error?.detail);
+      }
+    )
+  }
+
+  UpdateCV() {
+    this.CVUpdateRequest = this.CVForm.value as CVMOdel;
+    this.cvService.UpdateCV(this.CVUpdateRequest).subscribe(
+      (res) => {
+        this.createCVForm();
+        this.toasterService.success('CV added successfully');
+        this.GetCVsData();
+      },
+      (err) => {
+        this.toasterService.error(err?.error?.error?.detail);
+      }, () => {
+        this.isEdit = false;
+      }
+    )
+  }
+
+  patchDataToForm(cv: CVMOdel) {
+    this.CVForm.patchValue({
+      'id': cv.id,
+      'name': cv.name,
+      'fullName': cv.fullName,
+      'cityName': cv.cityName,
+      'email': cv.email,
+      'mobileNumber': cv.mobileNumber,
+      'companyName': cv.companyName,
+      'city': cv.city,
+      'companyField': cv.companyField
+    });
+    this.isEdit = true;
+  }
+
+  Clear() {
+    this.CVForm.reset();
+    this.isEdit = false;
   }
 
 }

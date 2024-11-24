@@ -1,10 +1,9 @@
-
 <form [formGroup]="CVForm">
 
     <div class="page-title">
-        <h4 class="page-title-text me-auto">CV</h4>
+        <h4 class="page-title-text me-auto"></h4>
         <div class="page-title-end">
-
+            
         </div>
     </div>
 
@@ -13,6 +12,7 @@
             <div class="container">
 
                 <div class="row g-5">
+                    <input type="hidden" formControlName="id">
                     <div class="col-lg-6">
                         <div class="row mb-3">
                             <label class="col-md-3 col-form-label">Name
@@ -106,17 +106,15 @@
 
                         </div>
                     </div>
-
+                </div>
+                <div style="margin: 20;">
+                    <button type="button" class="btn btn-primary" style="margin: 20px;" (click)="submitForm()">Save CV</button>
+                    <button type="button" class="btn btn-danger" (click)="Clear()">Clear</button>
 
                 </div>
-               <div class="">
-                <button type="button" class="btn btn-primary" (click)="submitForm()">Add CV</button>
-               </div>
-              
-            </div><!--container-->
-            
-        </div><!--card-widget-->
-    </div><!--content-->
+            </div>
+        </div>
+    </div>
 </form>
 
 <div class="container">
@@ -125,7 +123,6 @@
     {last} From {totalRecords} Entries" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
         <ng-template pTemplate="header">
             <tr>
-
                 <th>Name</th>
                 <th>Full Name</th>
                 <th>city Name</th>
@@ -166,7 +163,7 @@
         </ng-template>
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">NO DATA EXIST</td>
+                <td colspan="8">NO DATA EXIST</td>
             </tr>
         </ng-template>
     </p-table>
